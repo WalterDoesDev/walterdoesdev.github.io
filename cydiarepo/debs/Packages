@@ -13,7 +13,7 @@ Section: Scripting
 Priority: optional
 Homepage: http://www.python.org/
 Description: architectural programming language (with IPv6 support)
-Name: Python
+Name: Python2.6.5
 Sponsor: Linus Yang <http://yangtalk.tk/>
 
 Package: python
@@ -32,7 +32,7 @@ Section: Scripting
 Priority: optional
 Homepage: http://www.python.org/
 Description: architectural programming language (with IPv6 support)
-Name: Python
+Name: Python2.7.2
 Sponsor: Linus Yang <http://yangtalk.tk/>
 
 Package: python
@@ -52,6 +52,6 @@ Priority: optional
 Homepage: http://www.python.org/
 Description: architectural programming language (with IPv6 support)
 Tag: purpose::console, role::developer
-Name: Python
+Name: Python2.7.3
 Sponsor: Linus Yang <http://linusyang.com/>
 
