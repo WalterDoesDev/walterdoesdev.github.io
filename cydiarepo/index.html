@@ -2,78 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cydia Repo</title>
     <style>
-        /* Dark background like the screenshot */
+        /* iOS 3-6 compatible background */
         body {
             background-color: #000000;
-            color: white;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 20px;
+            color: #ffffff;
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Legacy centering for block elements */
+        }
+
+        .wrapper {
+            padding: 20px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 600px;
         }
 
         h1 {
-            font-size: 32px;
+            font-size: 24px;
+            margin-top: 30px;
             margin-bottom: 20px;
-            font-weight: 600;
-            text-align: left; /* Aligned left to match the repo style */
+            font-weight: bold;
         }
 
-        /* The White/Light Gray Card */
+        /* The White Card - compatible with iOS 3/4/5/6 */
         .card {
             background-color: #f5f5f5;
-            color: #333;
-            padding: 20px;
-            border-radius: 6px;
-            max-width: 800px;
+            color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+            -webkit-border-radius: 8px; /* Required for iOS 3 */
+            text-align: left; /* Keep text readable */
+            margin-bottom: 20px;
+            border: 1px solid #444; /* Helps define card against black bg */
         }
 
         .card p {
             margin: 0 0 15px 0;
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
-        /* The Button Style from yzu.moe/dev/ */
+        /* Electimon Style Button with Legacy Webkit support */
         .cydia-button {
             display: inline-block;
-            padding: 6px 12px;
+            padding: 8px 15px;
             font-size: 14px;
-            color: #333;
+            font-weight: bold;
+            color: #333333;
             text-decoration: none;
             background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: background-color 0.2s, box-shadow 0.2s;
+            
+            /* Legacy Gradient for iOS 3-6 appearance */
+            background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
+            
+            border: 1px solid #bbbbbb;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            
+            /* Simple shadow for depth */
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-        .cydia-button:hover {
-            background-color: #e6e6e6;
-            border-color: #adadad;
-        }
-
+        /* Active state for old touch devices */
         .cydia-button:active {
-            background-color: #d4d4d4;
-            box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+            background: #d4d4d4;
+            -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#eeeeee));
         }
     </style>
 </head>
 <body>
 
-    <h1>This is my Cydia repo,</h1>
-    
-    <div class="card">
-        <p>
-            if you would like to add any apps, tweaks,<br>
-            Winterboard Themes, etc, make a fork, <br>
-            Then make a pull request, then soon i, or<br>
-            anyone i recruit, will review then accept.
-        </p>
+    <div class="wrapper">
+        <h1>This is my Cydia repo,</h1>
+        
+        <div class="card">
+            <p>
+                if you would like to add any apps, tweaks,<br>
+                Winterboard Themes, etc, make a fork, <br>
+                Then make a pull request, then soon i, or<br>
+                anyone i recruit, will review then accept.
+            </p>
 
-        <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://cydia.frumpymussel.net/" class="cydia-button">
-            Add to Cydia
-        </a>
+            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://cydia.frumpymussel.net/" class="cydia-button">
+                Add to Cydia
+            </a>
+        </div>
     </div>
 
 </body>
