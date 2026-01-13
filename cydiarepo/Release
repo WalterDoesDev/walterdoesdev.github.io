@@ -1,0 +1,8 @@
+Origin: pkgcenter
+Label: pkgcenter
+Suite: stable
+Version: 0.1-d112
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: its like a small mall for cydia packages ig
