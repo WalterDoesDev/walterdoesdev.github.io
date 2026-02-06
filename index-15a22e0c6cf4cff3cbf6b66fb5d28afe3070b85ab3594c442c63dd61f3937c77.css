@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#il3o{
+    padding:10px;
+    position:static;
+    text-align:center;
+    font-weight:700;
+    font-size:36px;
+}
+
+#ihc4{
+    padding:10px;
+    text-align:center;
+}
+
+#iky5c{
+    text-align:center;
+}
+
+#i8qb8{
+    text-align:center;
+}
+
+#ivcj2{
+    text-align:center;
+}
+
+.videos{
+    display: flex;
+    justify-content: center;
+}
+
+iframe{
+    padding: 1rem;
+}
