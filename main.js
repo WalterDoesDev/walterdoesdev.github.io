@@ -1,5 +1,5 @@
 const loadVideo = (iframe) => {
-    alert("JS LOADED");
+    
 
     const cid = "UC8eqKZX3qF8Nf-x6C55caVQ";
 
