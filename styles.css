@@ -29,8 +29,27 @@
 	overflow: visible;
 	height: 55px;
 	display: flex;
-	align-items: center;     /* vertical center */
-	justify-content: center; /* horizontal center */
+	align-items: center;
+	justify-content: center;
+}
+
+.navlink {
+	position: absolute;
+	right: 20px;
+	font-family: "Merriweather", serif;
+	font-weight: 650;
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+	padding: 6px 14px;
+	border-radius: 6px;
+	background-color: rgba(255, 255, 255, 0.2);
+	transition: background-color 0.15s;
+	z-index: 1;
+}
+
+.navlink:hover {
+	background-color: rgba(255, 255, 255, 0.35);
 }
 
 .topnavbar::before {
