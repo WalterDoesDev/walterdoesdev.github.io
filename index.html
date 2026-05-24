@@ -17,4 +17,36 @@
 		   <p class=mwp>I Also Like to play Minecraft, CS2 (i am bad),<br>
 		   No Man's Sky, and about 20 more!</p>
 	</div>
+
+	<div class="videosidebar">
+		<div id="youtube-videos"></div>
+	</div>
+
+	<script>
+		const channelId = 'UC8eqKZX3qF8Nf-x6C55caVQ';
+		const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+		const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+		fetch(apiUrl)
+			.then(r => r.json())
+			.then(data => {
+				const videos = data.items
+					.filter(v => !v.link.includes('/shorts/'))
+					.slice(0, 3);
+
+				const container = document.getElementById('youtube-videos');
+				container.innerHTML = videos.map(v => `
+					<a class="video-card" href="${v.link}" target="_blank">
+						<div class="video-thumb" style="background-image: url(${v.thumbnail})">
+							<div class="video-play"></div>
+						</div>
+						<p class="video-title">${v.title}</p>
+					</a>
+				`).join('');
+			})
+			.catch(() => {
+				document.getElementById('youtube-videos').innerHTML =
+					'<p class="mwp">Could not load videos.</p>';
+			});
+	</script>
 </body>
