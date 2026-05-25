@@ -9,6 +9,15 @@
 <body>
 	<div class="backdrop"></div>
 
+	<div class="audio-controls">
+		<button id="music-toggle" class="music-btn" title="Toggle music">🔊</button>
+	</div>
+
+	<audio id="background-music" loop>
+		<source src="background-music.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+
 	<div class="topnavbar">
 		<h1 class="mw">Walter's Page</h1>
 		<a class="navlink" href="blender-portfolio/">Blender</a>
@@ -29,6 +38,42 @@
 	</div>
 
 	<script>
+		// Background music controls
+		const audioElement = document.getElementById('background-music');
+		const musicToggle = document.getElementById('music-toggle');
+		let isPlaying = false;
+
+		// Set initial volume to 30%
+		audioElement.volume = 0.3;
+
+		// Play music with user interaction
+		document.addEventListener('click', function enableAudio() {
+			if (!isPlaying) {
+				audioElement.play().catch(err => console.log('Autoplay prevented:', err));
+				isPlaying = true;
+				musicToggle.textContent = '🔊';
+				musicToggle.classList.add('playing');
+				document.removeEventListener('click', enableAudio);
+			}
+		});
+
+		// Toggle music on button click
+		musicToggle.addEventListener('click', (e) => {
+			e.stopPropagation();
+			if (isPlaying) {
+				audioElement.pause();
+				isPlaying = false;
+				musicToggle.textContent = '🔇';
+				musicToggle.classList.remove('playing');
+			} else {
+				audioElement.play();
+				isPlaying = true;
+				musicToggle.textContent = '🔊';
+				musicToggle.classList.add('playing');
+			}
+		});
+
+		// YouTube videos fetch
 		const channelId = 'UC8eqKZX3qF8Nf-x6C55caVQ';
 		const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
 		const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
