@@ -61,23 +61,21 @@
 	}
 }
 
-@keyframes musicPulse {
-	0%, 100% {
-		transform: scale(1);
-		box-shadow: 0 0 10px rgba(94, 124, 255, 0.3);
-	}
-	50% {
-		transform: scale(1.05);
-		box-shadow: 0 0 20px rgba(94, 124, 255, 0.6);
-	}
-}
-
 @keyframes shimmer {
 	0% {
 		background-position: -1000px 0;
 	}
 	100% {
 		background-position: 1000px 0;
+	}
+}
+
+@keyframes musicPulse {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
 	}
 }
 
@@ -91,6 +89,43 @@ html, body {
 	width: 100%;
 	height: 100%;
 	overflow-x: hidden;
+}
+
+/* Audio Controls */
+.audio-controls {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 100;
+	animation: slideInRight 0.6s ease-out;
+}
+
+.music-btn {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid rgba(94, 124, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.9);
+	font-size: 24px;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.music-btn:hover {
+	transform: scale(1.1);
+	box-shadow: 0 8px 25px rgba(94, 124, 255, 0.3);
+	border-color: rgba(94, 124, 255, 0.8);
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.music-btn.playing {
+	animation: musicPulse 2s ease-in-out infinite;
 }
 
 .mw {
@@ -151,6 +186,18 @@ html, body {
 	box-shadow: 0 8px 20px rgba(94, 124, 255, 0.4);
 }
 
+.youtube-link {
+	left: auto;
+	right: 20px;
+	font-size: 18px;
+	padding: 6px 12px;
+	background-color: #ff0000;
+}
+
+.youtube-link:hover {
+	background-color: #cc0000;
+}
+
 .topnavbar::before {
 	content: "";
 	position: absolute;
@@ -171,41 +218,6 @@ html, body {
 	filter: blur(6px) brightness(0.6);
 	z-index: -1;
 	animation: pulse 4s ease-in-out infinite;
-}
-
-.audio-controls {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	z-index: 100;
-	animation: slideInRight 0.6s ease-out;
-}
-
-.music-btn {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	border: none;
-	background: rgba(255, 255, 255, 0.75);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	font-size: 24px;
-	cursor: pointer;
-	transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-	box-shadow: 0 4px 15px rgba(94, 124, 255, 0.2);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.music-btn:hover {
-	transform: scale(1.1);
-	background: rgba(255, 255, 255, 0.9);
-	box-shadow: 0 6px 25px rgba(94, 124, 255, 0.4);
-}
-
-.music-btn.playing {
-	animation: musicPulse 1.5s ease-in-out infinite;
 }
 
 .textbox {
@@ -353,6 +365,23 @@ html, body {
 		left: 15px;
 	}
 
+	.navlink {
+		left: 10px;
+		font-size: 14px;
+		padding: 5px 12px;
+	}
+
+	.youtube-link {
+		right: 10px;
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+
+	.audio-controls {
+		top: 15px;
+		right: 15px;
+	}
+
 	.music-btn {
 		width: 45px;
 		height: 45px;
@@ -376,8 +405,14 @@ html, body {
 
 	.navlink {
 		left: 10px;
+		font-size: 12px;
+		padding: 4px 10px;
+	}
+
+	.youtube-link {
+		right: 65px;
 		font-size: 14px;
-		padding: 5px 12px;
+		padding: 4px 8px;
 	}
 
 	.textbox {
@@ -413,14 +448,14 @@ html, body {
 	}
 
 	.audio-controls {
-		top: 15px;
-		right: 15px;
+		top: 12px;
+		right: 12px;
 	}
 
 	.music-btn {
-		width: 45px;
-		height: 45px;
-		font-size: 20px;
+		width: 42px;
+		height: 42px;
+		font-size: 18px;
 	}
 }
 
@@ -435,8 +470,14 @@ html, body {
 	}
 
 	.navlink {
+		font-size: 11px;
+		padding: 3px 8px;
+	}
+
+	.youtube-link {
+		right: 60px;
 		font-size: 12px;
-		padding: 4px 10px;
+		padding: 3px 6px;
 	}
 
 	.textbox {
@@ -462,14 +503,14 @@ html, body {
 	}
 
 	.audio-controls {
-		top: 12px;
-		right: 12px;
+		top: 10px;
+		right: 10px;
 	}
 
 	.music-btn {
 		width: 40px;
 		height: 40px;
-		font-size: 18px;
+		font-size: 16px;
 	}
 }
 
