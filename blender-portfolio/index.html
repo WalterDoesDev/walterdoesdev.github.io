@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Walter's Blender Portfolio</title>
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -11,11 +16,25 @@
  	<div class="textbox">
 		<div class="portfolio-item">
 			<p class="mwp">Actually Good</p>
-			<img src="actually good.png" class="portfolio-img">
+			<img src="actually good.png" class="portfolio-img" loading="lazy">
 		</div>
 		<div class="portfolio-item">
 			<p class="mwp">Trashy</p>
-			<img src="trashy.png" class="portfolio-img">
+			<img src="trashy.png" class="portfolio-img" loading="lazy">
 		</div>
 	</div>
+
+	<script>
+		// Trigger animations when page loads
+		window.addEventListener('load', () => {
+			document.querySelector('.topnavbar').classList.add('animate');
+			document.querySelector('.textbox').classList.add('animate');
+			document.querySelectorAll('.portfolio-item').forEach((item, index) => {
+				setTimeout(() => {
+					item.classList.add('animate');
+				}, 100 * (index + 1));
+			});
+		});
+	</script>
 </body>
+</html>
